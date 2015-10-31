@@ -52,6 +52,11 @@ class PID
 	int GetDirection();					  //
 	unsigned long GetSampleTime() const;
 
+	double GetPTerm() const;			  // These function query the pid for
+	double GetITerm() const;			  // the P, I or D terms, respectively,
+	double GetDTerm() const;			  // calculated during the last active
+										  // Compute() call.
+
   private:
 	void Initialize();
 	
@@ -72,6 +77,7 @@ class PID
 			  
 	unsigned long lastTime;
 	double ITerm, lastInput;
+	double PTerm, DTerm;
 
 	unsigned long SampleTime;
 	double outMin, outMax;

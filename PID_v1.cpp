@@ -58,9 +58,11 @@ bool PID::Compute()
       if(ITerm > outMax) ITerm= outMax;
       else if(ITerm < outMin) ITerm= outMin;
       double dInput = (input - lastInput);
- 
+      DTerm = -kd * dInput;
+      PTerm = kp * error;
+
       /*Compute PID Output*/
-      double output = kp * error + ITerm- kd * dInput;
+      double output = PTerm + ITerm + DTerm;
       
 	  if(output > outMax) output = outMax;
       else if(output < outMin) output = outMin;
@@ -194,3 +196,6 @@ int PID::GetMode(){ return  inAuto ? AUTOMATIC : MANUAL;}
 int PID::GetDirection(){ return controllerDirection;}
 unsigned long PID::GetSampleTime() const { return SampleTime; }
 
+double PID::GetPTerm() const { return PTerm; };
+double PID::GetITerm() const { return ITerm; };
+double PID::GetDTerm() const { return DTerm; };

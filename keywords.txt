@@ -24,6 +24,9 @@ GetKd	KEYWORD2
 GetMode	KEYWORD2
 GetDirection	KEYWORD2
 GetSampleTime	KEYWORD2
+GetPTerm	KEYWORD2
+GetITerm	KEYWORD2
+GetDTerm	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
